@@ -117,4 +117,15 @@ def generate_mtcn():
     import string
     return ''.join(random.choices(string.digits, k=15))
 
+def forget_password(request):
+    # Your view logic here
+    return render(request, 'forget_password.html')
+
+def user_logout(request):
+    logout(request)
+    return redirect('login')
+
+
+
+
 
