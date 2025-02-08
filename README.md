@@ -1,4 +1,4 @@
-# Western Union Money Transfer Application
+# Western Union Money Transfer Application by Charles Walton
 
 ## Overview
 
@@ -123,8 +123,8 @@ User B, the recipient of funds, must provide the following information:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/western-union-transfer-app.git
-   cd western-union-transfer-app
+   git clone https://github.com/cwalton133/WesternUnionMoneyTransfer.git
+   cd WesternUnionMoneyTransfe
    ```
 
 Create a virtual environment:

@@ -1,4 +1,4 @@
-# Products Application
+# Products Application by Charles Walton
 
 This is a Django-based web application that manages online products, users, orders, and blog posts. It comprises four primary applications: **Users**, **Products**, **Orders**, and **Blog**. This README provides an overview of the project, installation instructions, usage, and more.
 
