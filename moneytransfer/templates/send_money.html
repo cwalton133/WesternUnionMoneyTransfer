@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
-{% block title %}Receive Money{% endblock %}
+{% block title %}Send Money{% endblock %}
 
 {% block content %}
 <div class="center">
-    <h1>Receive Money</h1>
+    <h1>Send Money</h1>
 
     {% if messages %}
         {% for message in messages %}
@@ -20,25 +20,19 @@
         {% csrf_token %}
         
         <div class="txt_field">
-            <input type="text" required name="mtcn" placeholder="MTCN (Money Transfer Control Number)">
+            <input type="text" required name="recipient_name" placeholder="Recipient's Name">
             <span></span>
-            <label>MTCN</label>
+            <label>Recipient's Name</label>
         </div>
 
         <div class="txt_field">
-            <input type="text" required name="sender_name" placeholder="Sender's Name">
+            <input type="email" required name="recipient_email" placeholder="Recipient's Email">
             <span></span>
-            <label>Sender's Name</label>
+            <label>Recipient's Email</label>
         </div>
 
         <div class="txt_field">
-            <input type="email" required name="sender_email" placeholder="Sender's Email">
-            <span></span>
-            <label>Sender's Email</label>
-        </div>
-
-        <div class="txt_field">
-            <input type="text" required name="amount" placeholder="Amount to Receive">
+            <input type="text" required name="amount" placeholder="Amount to Send">
             <span></span>
             <label>Amount</label>
         </div>
@@ -49,7 +43,13 @@
             <label>Currency</label>
         </div>
 
-        <input type="submit" value="Receive Money">
+        <div class="txt_field">
+            <textarea required name="message" placeholder="Optional Message"></textarea>
+            <span></span>
+            <label>Message (Optional)</label>
+        </div>
+
+        <input type="submit" value="Send Money">
     </form>
 
     <div class="signup_link">

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="center">
+    <h1>Welcome to Western Union Money Transfer Portal!</h1>
+    <p>This application provides various services to help you manage your finances.</p>
+    <p>The Western Union Money Transfer Application allows users to send and receive money internationally and domestically. The application enables User A to send funds to User B, with a secure tracking system using the Money Transfer Control Number (MTCN). The portal also includes verification steps to ensure the legitimacy of transactions.
+
+</p>
+
+    <div class="button-container">
+        <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+        <a href="{% url 'register' %}" class="btn btn-success">Register</a>
+    </div>
+
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                <center><h4 style="color: firebrick;">{{ message }}</h4></center>
+            {% else %}
+                <center><h4 style="color: dodgerblue;">{{ message }}</h4></center>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+</div>
+{% endblock %}

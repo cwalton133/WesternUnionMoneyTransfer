@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}Track Transaction{% endblock %}
+
+{% block content %}
+<div class="center">
+    <h1>Track Your Transaction</h1>
+
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                <center><h4 style="color: firebrick;">{{ message }}</h4></center>
+            {% else %}
+                <center><h4 style="color: dodgerblue;">{{ message }}</h4></center>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        
+        <div class="txt_field">
+            <input type="text" required name="mtcn" placeholder="Enter MTCN">
+            <span></span>
+            <label>MTCN (Money Transfer Control Number)</label>
+        </div>
+
+        <input type="submit" value="Track Transaction">
+    </form>
+
+    {% if transaction %}
+        <div class="transaction_details">
+            <h2>Transaction Details</h2>
+            <table>
+                <tr>
+                    <th>MTCN</th>
+                    <td>{{ transaction.mtcn }}</td>
+                </tr>
+                <tr>
+                    <th>Sender</th>
+                    <td>{{ transaction.sender.full_name }}</td>
+                </tr>
+                <tr>
+                    <th>Receiver</th>
+                    <td>{{ transaction.receiver.full_name }}</td>
+                </tr>
+                <tr>
+                    <th>Amount</th>
+                    <td>{{ transaction.amount }}</td>
+                </tr>
+                <tr>
+                    <th>Status</th>
+                    <td>{{ transaction.status }}</td>
+                </tr>
+                <tr>
+                    <th>Date Created</th>
+                    <td>{{ transaction.date_created }}</td>
+                </tr>
+            </table>
+        </div>
+    {% endif %}
+
+    <div class="signup_link">
+        Back to <a href="{% url 'dashboard' %}">Dashboard</a>
+    </div>
+</div>
+{% endblock %}
