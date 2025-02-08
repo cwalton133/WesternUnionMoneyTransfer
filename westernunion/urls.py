@@ -16,10 +16,18 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path, include
+#from django.urls import path, include, re_path
+from django.urls import include, path
+from django.shortcuts import redirect
+
+
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path('', lambda request: redirect('home'), name='redirect_to_home'),
     path("moneytransfer/", include('moneytransfer.urls')),
+    #path('', redirect('home'), name='redirect_to_home'),
+    #re_path(r'^$', lambda request: redirect('home')),
 
 ]
